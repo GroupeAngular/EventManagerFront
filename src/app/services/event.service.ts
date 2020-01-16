@@ -1,21 +1,39 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError, tap} from 'rxjs/operators';
 import { Event } from '../classes/event';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
 
+  private serverUrl = 'http://localhost:8080';
+
   constructor(private http: HttpClient) { }
 
   public findEvent(id: number): Observable<Event> {
-    return null;
+    const url = `${this.serverUrl}/event/${id}`;
+    return this.http.get<Event>(url)
+      .pipe(
+        tap(_ => console.log(`fetched event ${id}`)),
+        catchError(this.handleError<Event>('fetch event'))
+      );
   }
 
   public findAll(): Observable<Event[]> {
     return null;
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      console.error(error); // log to console instead
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
 
 }
