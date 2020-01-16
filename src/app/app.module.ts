@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { EventDetailComponent } from './components/event-detail/event-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,
