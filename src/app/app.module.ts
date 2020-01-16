@@ -8,6 +8,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { EventDetailComponent } from './components/event-detail/event-detail.component';
 import { EventListComponent } from './components/event-list/event-list.component';
+import { EventCardComponent } from './components/event-card/event-card.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { EventListComponent } from './components/event-list/event-list.component
     TopbarComponent,
     SidebarComponent,
     EventDetailComponent,
-    EventListComponent
+    EventListComponent,
+    EventCardComponent
   ],
   imports: [
     BrowserModule,
