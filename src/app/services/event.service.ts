@@ -23,7 +23,13 @@ export class EventService {
   }
 
   public findAll(): Observable<Event[]> {
-    return null;
+    const url = `${this.serverUrl}/event`;
+
+    return this.http.get<Event[]>(url)
+      .pipe(
+        tap(_ => console.log("fetched all events")),
+        catchError(this.handleError<Event[]>('fetch all event'))
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

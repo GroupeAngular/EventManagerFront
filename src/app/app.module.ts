@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { EventDetailComponent } from './components/event-detail/event-detail.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
+import { registerLocaleData } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { EventCardComponent } from './components/event-card/event-card.component
     AngularFontAwesomeModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
