@@ -28,7 +28,17 @@ export class EventService {
     return this.http.get<Event[]>(url)
       .pipe(
         tap(_ => console.log("fetched all events")),
-        catchError(this.handleError<Event[]>('fetch all event'))
+        catchError(this.handleError<Event[]>('fetch all events'))
+      );
+  }
+
+  public findAllLike(pattern: string): Observable<Event[]> {
+    const url = `${this.serverUrl}/event/search/${pattern}`;
+
+    return this.http.get<Event[]>(url)
+      .pipe(
+        tap(_ => console.log(`fetched all events containing ${pattern}`)),
+        catchError(this.handleError<Event[]>('fetch all event like'))
       );
   }
 
