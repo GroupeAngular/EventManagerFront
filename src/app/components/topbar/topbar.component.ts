@@ -18,8 +18,12 @@ export class TopbarComponent implements OnInit {
   }
 
   onSearchChange(pattern: string): void {
-    this.eventService.findAllLike(pattern)
-      .subscribe(events => this.searchResult = events);
+    if (pattern) {
+      this.eventService.findAllLike(pattern)
+        .subscribe(events => this.searchResult = events);
+    } else {
+        this.searchResult = [];
+    }
   }
 
 }

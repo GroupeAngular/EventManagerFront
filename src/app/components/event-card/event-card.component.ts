@@ -8,7 +8,7 @@ import { Event } from 'src/app/classes/event';
 })
 export class EventCardComponent implements OnInit {
   @Input() event: Event;
-  
+
   constructor() { }
 
   ngOnInit() {
