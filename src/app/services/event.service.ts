@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap} from 'rxjs/operators';
 import { Event } from '../classes/event';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,10 @@ import { HttpClient } from '@angular/common/http';
 export class EventService {
 
   private serverUrl = 'http://localhost:8080';
+
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -39,6 +43,18 @@ export class EventService {
       .pipe(
         tap(_ => console.log(`fetched all events containing ${pattern}`)),
         catchError(this.handleError<Event[]>('fetch all event like'))
+      );
+  }
+
+  public createNewEvent(event: Event): Observable<any> {
+    const url = `${this.serverUrl}/event`;
+    
+    console.log("===============" + JSON.stringify(event));
+    console.log(url);
+    return this.http.post<Event>(url, event, this.httpOptions)
+      .pipe(
+        tap(_ => console.log("create new event")),
+        catchError(this.handleError<Event>('create new event'))
       );
   }
 

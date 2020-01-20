@@ -4,4 +4,5 @@ export class Event {
     description: string;
     date: Date;
     imagePath: string;
+    address: string;
 }

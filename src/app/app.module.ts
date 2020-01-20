@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +12,7 @@ import { EventDetailComponent } from './components/event-detail/event-detail.com
 import { EventListComponent } from './components/event-list/event-list.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
 import { registerLocaleData } from '@angular/common';
+import { EventCreationComponent } from './components/event-creation/event-creation.component';
 
 
 @NgModule({
@@ -20,13 +22,15 @@ import { registerLocaleData } from '@angular/common';
     SidebarComponent,
     EventDetailComponent,
     EventListComponent,
-    EventCardComponent
+    EventCardComponent,
+    EventCreationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
   ],
