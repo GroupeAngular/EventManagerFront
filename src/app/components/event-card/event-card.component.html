@@ -4,6 +4,9 @@
         <h5 class="card-title truncate">{{event.name }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{event.date | date:'dd MMMM yyyy'}}</h6>
         <p class="card-text truncate">{{event.description}}</p>
+        <a class="btn btn-dark float-right text-white" (click)="openConfirmDeleteModal()">
+            <fa name="trash"></fa>
+        </a>
         <a routerLink="/event/{{event.id}}" class="btn btn-primary">Détails</a>
     </div>
 </div>

@@ -58,6 +58,16 @@ export class EventService {
       );
   }
 
+  public delete(id: number): Observable<any> {
+    const url = `${this.serverUrl}/event/${id}`;
+
+    return this.http.delete<any>(url)
+      .pipe(
+        tap(_ => console.log(`delete event ${id}`)),
+        catchError(this.handleError<Event>('delete event'))
+      );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

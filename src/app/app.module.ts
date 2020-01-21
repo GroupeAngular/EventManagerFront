@@ -11,8 +11,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { EventDetailComponent } from './components/event-detail/event-detail.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
-import { registerLocaleData } from '@angular/common';
 import { EventCreationComponent } from './components/event-creation/event-creation.component';
+import { ConfirmDeleteEventComponent } from './components/modal/confirm-delete-event/confirm-delete-event.component';
 
 
 @NgModule({
@@ -23,7 +23,8 @@ import { EventCreationComponent } from './components/event-creation/event-creati
     EventDetailComponent,
     EventListComponent,
     EventCardComponent,
-    EventCreationComponent
+    EventCreationComponent,
+    ConfirmDeleteEventComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +33,12 @@ import { EventCreationComponent } from './components/event-creation/event-creati
     HttpClientModule,
     FormsModule
   ],
+  exports: [
+    ConfirmDeleteEventComponent
+  ],
   providers: [
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ ConfirmDeleteEventComponent ]
 })
 export class AppModule { }
