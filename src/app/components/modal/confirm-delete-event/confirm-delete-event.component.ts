@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Event } from 'src/app/classes/event';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-confirm-delete-event',
@@ -9,10 +10,9 @@ import { Event } from 'src/app/classes/event';
 export class ConfirmDeleteEventComponent implements OnInit {
   @Input() event: Event;
 
-  constructor() { }
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
-    console.log("ngOnInit() of modal " + JSON.stringify(event));
   }
 
 }

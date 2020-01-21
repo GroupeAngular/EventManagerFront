@@ -13,6 +13,7 @@ import { EventListComponent } from './components/event-list/event-list.component
 import { EventCardComponent } from './components/event-card/event-card.component';
 import { EventCreationComponent } from './components/event-creation/event-creation.component';
 import { ConfirmDeleteEventComponent } from './components/modal/confirm-delete-event/confirm-delete-event.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ConfirmDeleteEventComponent } from './components/modal/confirm-delete-e
     AppRoutingModule,
     AngularFontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   exports: [
     ConfirmDeleteEventComponent

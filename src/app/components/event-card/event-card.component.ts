@@ -26,7 +26,7 @@ export class EventCardComponent implements OnInit {
   // }
 
   public openConfirmDeleteModal(): void {
-    const modalRef = this.modalService.open(ConfirmDeleteEventComponent);
+    const modalRef = this.modalService.open(ConfirmDeleteEventComponent, {centered: true});
 
     modalRef.componentInstance.event = this.event;
   }
